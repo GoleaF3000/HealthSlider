@@ -246,7 +246,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771190733}
         m_TargetAssemblyTypeName: ControllerHealthBar, Assembly-CSharp
-        m_MethodName: TakeHealth
+        m_MethodName: TakeHealthSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 771190734}
+        m_TargetAssemblyTypeName: ControllerHealthValue, Assembly-CSharp
+        m_MethodName: TakeHealthValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -543,6 +555,7 @@ GameObject:
   - component: {fileID: 771190730}
   - component: {fileID: 771190729}
   - component: {fileID: 771190733}
+  - component: {fileID: 771190734}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -648,10 +661,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af773a3ed00f6449a4ac5c268b8bad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textHealthValue: {fileID: 1412274527}
   _slider: {fileID: 1750493455}
-  _valueHealth: 0
+  _controllerHealthValue: {fileID: 771190734}
   _durationChanged: 1
+--- !u!114 &771190734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771190728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2ee59a387c111428d00f379b60832f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _valueHealth: 70
+  _textHealthValue: {fileID: 1412274527}
 --- !u!1 &854412144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,7 +1156,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 771190733}
         m_TargetAssemblyTypeName: ControllerHealthBar, Assembly-CSharp
-        m_MethodName: AddHealth
+        m_MethodName: AddHealthSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 771190734}
+        m_TargetAssemblyTypeName: ControllerHealthValue, Assembly-CSharp
+        m_MethodName: AddHealthValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1535,7 +1573,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 17.8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
