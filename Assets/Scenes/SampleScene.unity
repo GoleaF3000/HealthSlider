@@ -173,8 +173,8 @@ GameObject:
   - component: {fileID: 223323640}
   - component: {fileID: 223323639}
   m_Layer: 5
-  m_Name: ButtonTakeHealth
-  m_TagString: Untagged
+  m_Name: ButtonDamage
+  m_TagString: ButtonDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,10 +195,10 @@ RectTransform:
   m_Father: {fileID: 771190732}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 273.03806, y: -223.48209}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.74750006, y: 0.062833816}
+  m_AnchorMax: {x: 0.94000006, y: 0.12630206}
+  m_AnchoredPosition: {x: -1.9619446, y: 2.5179443}
+  m_SizeDelta: {x: 6, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223323639
 MonoBehaviour:
@@ -245,20 +245,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 771190733}
-        m_TargetAssemblyTypeName: ControllerHealthBar, Assembly-CSharp
-        m_MethodName: TakeHealthSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 771190734}
-        m_TargetAssemblyTypeName: ControllerHealthValue, Assembly-CSharp
-        m_MethodName: TakeHealthValue
+        m_TargetAssemblyTypeName: HealthValue, Assembly-CSharp
+        m_MethodName: MakeDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -621,6 +609,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -658,12 +647,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 771190728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af773a3ed00f6449a4ac5c268b8bad9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b2ee59a387c111428d00f379b60832f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1750493455}
-  _controllerHealthValue: {fileID: 771190734}
-  _durationChanged: 1
+  _value: 0
+  _healWeight: 10
+  _damageWeight: -10
+  _reached:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &771190734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,11 +666,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 771190728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2ee59a387c111428d00f379b60832f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0af773a3ed00f6449a4ac5c268b8bad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _valueHealth: 70
+  _health: {fileID: 771190733}
+  _slider: {fileID: 1750493455}
   _textHealthValue: {fileID: 1412274527}
+  _durationChanged: 0.5
 --- !u!1 &854412144
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -993,7 +987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -10 HP
+  m_text: Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1083,8 +1077,8 @@ GameObject:
   - component: {fileID: 1258365775}
   - component: {fileID: 1258365774}
   m_Layer: 5
-  m_Name: ButtonAddHealth
-  m_TagString: Untagged
+  m_Name: ButtonHeal
+  m_TagString: ButtonHeal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,10 +1099,10 @@ RectTransform:
   m_Father: {fileID: 771190732}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -262.8467, y: -227}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.076249994, y: 0.062833816}
+  m_AnchorMax: {x: 0.26875, y: 0.12630206}
+  m_AnchoredPosition: {x: -0.8466797, y: -1}
+  m_SizeDelta: {x: 6, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258365774
 MonoBehaviour:
@@ -1155,20 +1149,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 771190733}
-        m_TargetAssemblyTypeName: ControllerHealthBar, Assembly-CSharp
-        m_MethodName: AddHealthSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 771190734}
-        m_TargetAssemblyTypeName: ControllerHealthValue, Assembly-CSharp
-        m_MethodName: AddHealthValue
+        m_TargetAssemblyTypeName: HealthValue, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1249,10 +1231,10 @@ RectTransform:
   m_Father: {fileID: 771190732}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.63, y: 265}
-  m_SizeDelta: {x: 302.75, y: 50}
+  m_AnchorMin: {x: 0.24625, y: 0.9267538}
+  m_AnchorMax: {x: 0.32375002, y: 0.9577717}
+  m_AnchoredPosition: {x: 119.369995, y: -8}
+  m_SizeDelta: {x: 240.75, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1412274527
 MonoBehaviour:
@@ -1301,12 +1283,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 20
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1409,7 +1391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10 HP
+  m_text: Heal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1521,10 +1503,10 @@ RectTransform:
   m_Father: {fileID: 771190732}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 102, y: -34}
-  m_SizeDelta: {x: 160, y: 19}
+  m_AnchorMin: {x: 0.030000001, y: 0.91946816}
+  m_AnchorMax: {x: 0.26875, y: 0.945763}
+  m_AnchoredPosition: {x: -17.5, y: 7}
+  m_SizeDelta: {x: -31, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750493455
 MonoBehaviour:
@@ -1573,7 +1555,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 17.8
+  m_Value: 29
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
