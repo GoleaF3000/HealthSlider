@@ -29,8 +29,7 @@ public class HealthBar : MonoBehaviour
 
     private void StartChange()
     {
-        StartCoroutine(Change());
-        StopCoroutine(Change());
+        StartCoroutine(Change());        
     }
 
     private IEnumerator Change()
@@ -47,5 +46,7 @@ public class HealthBar : MonoBehaviour
             _slider.value = Mathf.MoveTowards(_slider.value, targetValue, (difference / _durationChanged) * Time.deltaTime);
             yield return null;
         }
+
+        StopCoroutine(Change());
     }
 }
