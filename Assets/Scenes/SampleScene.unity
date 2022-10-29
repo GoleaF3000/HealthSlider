@@ -247,12 +247,12 @@ MonoBehaviour:
       - m_Target: {fileID: 771190733}
         m_TargetAssemblyTypeName: HealthValue, Assembly-CSharp
         m_MethodName: MakeDamage
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: -10
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -652,8 +652,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 1750493455}
   _value: 0
-  _healWeight: 10
-  _damageWeight: -10
   _reached:
     m_PersistentCalls:
       m_Calls: []
@@ -1151,12 +1149,12 @@ MonoBehaviour:
       - m_Target: {fileID: 771190733}
         m_TargetAssemblyTypeName: HealthValue, Assembly-CSharp
         m_MethodName: Heal
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 10
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
