@@ -25,7 +25,7 @@ public class HealthValue : MonoBehaviour
 
     public void MakeDamage(float weight2)
     {
-        Change(weight2);
+        Change(-weight2);
     }
 
     private void Change(float weight)
