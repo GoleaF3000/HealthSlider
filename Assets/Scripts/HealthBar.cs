@@ -11,6 +11,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private TMP_Text _textHealthValue;
     [SerializeField] private float _durationChanged;
 
+    private Coroutine _save;
+
     private void Start()
     {
         _textHealthValue.text = _health.Value.ToString();
@@ -29,7 +31,10 @@ public class HealthBar : MonoBehaviour
 
     private void StartChange()
     {
-        StartCoroutine(Change());        
+        if (_save != null)
+            StopCoroutine(_save);
+        
+        _save = StartCoroutine(Change());        
     }
 
     private IEnumerator Change()
@@ -46,7 +51,5 @@ public class HealthBar : MonoBehaviour
             _slider.value = Mathf.MoveTowards(_slider.value, targetValue, (difference / _durationChanged) * Time.deltaTime);
             yield return null;
         }
-
-        StopCoroutine(Change());
     }
 }
