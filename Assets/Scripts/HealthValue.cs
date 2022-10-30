@@ -9,7 +9,7 @@ public class HealthValue : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private float _value;
 
-    public event UnityAction Reached;
+    public event UnityAction Changed;
 
     public float Value => _value;    
 
@@ -32,6 +32,6 @@ public class HealthValue : MonoBehaviour
     {
         _value += weight;
         _value = Mathf.Clamp(_value, _slider.minValue, _slider.maxValue);
-        Reached.Invoke();
+        Changed.Invoke();
     }
 }

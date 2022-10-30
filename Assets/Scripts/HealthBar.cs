@@ -21,15 +21,15 @@ public class HealthBar : MonoBehaviour
 
     private void OnEnable()
     {
-        _health.Reached += StartChange;
+        _health.Changed += OnChanged;
     }
 
     private void OnDisable()
     {
-        _health.Reached -= StartChange;
+        _health.Changed -= OnChanged;
     }
 
-    private void StartChange()
+    private void OnChanged()
     {
         if (_save != null)
             StopCoroutine(_save);
