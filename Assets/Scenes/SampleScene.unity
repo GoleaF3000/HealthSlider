@@ -650,7 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b2ee59a387c111428d00f379b60832f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 1750493455}
+  _minValue: 0
+  _maxValue: 100
   _value: 0
 --- !u!114 &771190734
 MonoBehaviour:
@@ -667,7 +668,7 @@ MonoBehaviour:
   _health: {fileID: 771190733}
   _slider: {fileID: 1750493455}
   _textHealthValue: {fileID: 1412274527}
-  _durationChanged: 0.5
+  _speed: 30
 --- !u!1 &854412144
 GameObject:
   m_ObjectHideFlags: 0
